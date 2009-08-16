@@ -15,6 +15,10 @@ public class ProcessLoader
         {
             this.controller = new UrSQLController("linuxprocesses.udb");
         }
+        else if (System.getProperty("os.name").contains("Windows"))
+        {
+            this.controller = new UrSQLController("windowsprocesses.udb");
+        }
     }
 
     /**

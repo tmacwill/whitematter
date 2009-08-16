@@ -41,7 +41,7 @@ public class Sticklet extends javax.swing.JFrame
         this.process = process;
 
         // check if process is found in database
-        UrSQLEntity entity = this.processLoader.controller.getEntity("process");
+        UrSQLEntity entity = this.processLoader.controller.getEntity("process=" + process);
         if (entity.isEmpty() && process.compareTo("") != 0)
         {
             // create a new item if not

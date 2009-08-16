@@ -29,12 +29,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblProcess" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="comboProcess" pref="310" max="32767" attributes="0"/>
+                      <Component id="comboProcess" pref="331" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnClose" pref="132" max="32767" attributes="0"/>
+                      <Component id="btnClose" pref="144" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                   </Group>

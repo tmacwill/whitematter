@@ -2,7 +2,7 @@ package tmacsoftware.whitematter;
 
 import tmacsoftware.ursql.*;
 import java.util.Vector;
-import java.io.File;
+import java.io.*;
 
 public class StickletWatcher extends Thread
 {
@@ -20,7 +20,8 @@ public class StickletWatcher extends Thread
      * Check if any sticklet processes match currently running processes,
      * and show appopriate sticklet if so
      */
-    @Override public void run()
+    @Override
+    public void run()
     {
         while (true)
         {
@@ -78,7 +79,21 @@ public class StickletWatcher extends Thread
      */
     public Vector<String> getRunningProcesses()
     {
-        return (System.getProperty("os.name").compareTo("Linux") == 0) ? getRunningProcessesLinux() : getRunningProcessesWindows();
+        if (System.getProperty("os.name").compareTo("Linux") == 0)
+        {
+            return getRunningProcessesLinux();
+        }
+        else
+        {
+            if (System.getProperty("os.name").contains("Windows"))
+            {
+                return getRunningProcessesWindows();
+            }
+            else
+            {
+                return new Vector<String>();
+            }
+        }
     }
 
     /**
@@ -116,9 +131,33 @@ public class StickletWatcher extends Thread
         return processes;
     }
 
+    /**
+     * Run tasklist.exe to get running processes
+     * @return Vector containing processes
+     */
     public Vector<String> getRunningProcessesWindows()
     {
-        return new Vector<String>();
+        Vector<String> processes = new Vector<String>();
+        String line = "";
+        try
+        {
+            Process p = Runtime.getRuntime().exec("tasklist.exe /fo csv /nh");
+            BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            while ((line = input.readLine()) != null)
+            {
+                processes.add(line);
+            }
+            input.close();
+
+            p.waitFor();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return processes;
+
     }
 
     /**
