@@ -1,0 +1,22 @@
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\tmac\Documents\Projects\whitematter\dist\whitematter.jar</jar>
+  <outfile>C:\Users\tmac\Documents\Projects\whitematter\whitematter.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest>C:\Users\tmac\Documents\Projects\whitematter\manifest.mf</manifest>
+  <icon>C:\Users\tmac\Documents\Projects\whitematter\src\images\icon.ico</icon>
+  <jre>
+    <path></path>
+    <minVersion>1.6.0_14</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+  </jre>
+</launch4jConfig>
