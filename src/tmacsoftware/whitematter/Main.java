@@ -1,6 +1,7 @@
 package tmacsoftware.whitematter;
 
 import javax.swing.UIManager;
+import java.io.*;
 
 public class Main
 {
@@ -14,7 +15,7 @@ public class Main
         {
             e.printStackTrace();
         }
-        
+
         TrayNotebook trayNotebook = new TrayNotebook();
         trayNotebook.setVisible(true);
     }

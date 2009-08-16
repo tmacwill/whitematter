@@ -1,6 +1,7 @@
 package tmacsoftware.whitematter;
 
 import tmacsoftware.ursql.*;
+import java.util.Vector;
 
 public class Sticklet extends javax.swing.JFrame
 {
@@ -8,38 +9,102 @@ public class Sticklet extends javax.swing.JFrame
     private String process = "";
     private String note = "";
     private StickletHandler stickletHandler = null;
+    private ProcessLoader processLoader = null;
 
     public Sticklet(String process, String note, StickletHandler stickletHandler)
     {
         initComponents();
 
+        this.processLoader = new ProcessLoader(this);
+        this.processLoader.load();
+
         this.setProcess(process);
         this.setNote(note);
         this.stickletHandler = stickletHandler;
+
+        this.comboProcess.addActionListener(new java.awt.event.ActionListener()
+        {
+
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                checkEditable();
+            }
+        });
     }
 
+    /**
+     * Save process name and switch combo box to appropriate value
+     * @param process Process name
+     */
     public void setProcess(String process)
     {
         this.process = process;
-        this.txtProcess.setText(process);
+
+        // check if process is found in database
+        UrSQLEntity entity = this.processLoader.controller.getEntity("process");
+        if (entity.isEmpty() && process.compareTo("") != 0)
+        {
+            // create a new item if not
+            this.comboProcess.addItem(process);
+            this.comboProcess.setSelectedItem(process);
+            return;
+        }
+
+        this.comboProcess.setSelectedItem(this.processLoader.getName(process));
     }
 
+    /**
+     * Get process name from combo box
+     * @return Process name
+     */
     public String getProcess()
     {
-        this.process = this.txtProcess.getText();
+        this.process = this.processLoader.getProcess(this.comboProcess.getSelectedItem().toString());        
         return this.process;
     }
 
+    /**
+     * Save note text and adjust textbox value
+     * @param note Text for note
+     */
     public void setNote(String note)
     {
         this.note = note;
         this.txtNote.setText(note);
     }
 
+    /**
+     * Get note text from textbox
+     * @return Note text
+     */
     public String getNote()
     {
         this.note = this.txtNote.getText();
         return this.note;
+    }
+
+    /**
+     * Add item to process combo box
+     * @param item Item to add to combo box
+     */
+    public void addProcessItem(String item)
+    {
+        this.comboProcess.addItem(item);
+    }
+
+    /**
+     * Make combo box editable when "Other" is selected
+     */
+    public void checkEditable()
+    {
+        if (this.comboProcess.getSelectedItem().toString().compareTo("Other") == 0)
+        {
+            this.comboProcess.setEditable(true);
+        }
+        else
+        {
+            this.comboProcess.setEditable(false);
+        }
     }
 
     /**
@@ -69,26 +134,26 @@ public class Sticklet extends javax.swing.JFrame
     private void initComponents() {
 
         lblProcess = new javax.swing.JLabel();
-        txtProcess = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         lblNote = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtNote = new javax.swing.JTextArea();
+        comboProcess = new javax.swing.JComboBox();
 
         setAlwaysOnTop(true);
 
         lblProcess.setText("Process:");
 
-        btnSave.setText("Save");
+        btnSave.setText("Save and Close");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
 
-        btnDelete.setText("Delete");
+        btnDelete.setText("Delete and Close");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -118,12 +183,12 @@ public class Sticklet extends javax.swing.JFrame
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblProcess)
-                        .addGap(3, 3, 3)
-                        .addComponent(txtProcess, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboProcess, 0, 310, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClose, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                        .addComponent(btnClose, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSave))
                     .addComponent(lblNote))
@@ -135,7 +200,7 @@ public class Sticklet extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProcess)
-                    .addComponent(txtProcess, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboProcess, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNote)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -172,10 +237,10 @@ public class Sticklet extends javax.swing.JFrame
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox comboProcess;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNote;
     private javax.swing.JLabel lblProcess;
     private javax.swing.JTextArea txtNote;
-    private javax.swing.JTextField txtProcess;
     // End of variables declaration//GEN-END:variables
 }

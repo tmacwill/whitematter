@@ -1,0 +1,37 @@
+[0]
+[1]
+name=Firefox
+process=firefox
+[2]
+name=Pidgin
+process=pidgin
+[3]
+name=Gedit
+process=gedit
+[4]
+name=Console
+process=gnome-terminal
+[5]
+name=Banshee
+process=banshee
+[6]
+name=Rhythmbox
+process=rhythmbox
+[7]
+name=OpenOffice.org Writer
+process=soffice.bin-writer
+[8]
+name=OpenOffice.org Impress
+process=soffice.bin-impress
+[9]
+name=OpenOffice.org Calc
+process=soffice.bin-calc
+[10]
+name=The GIMP
+process=gimp
+[11]
+name=Filezilla
+process=filezilla
+[12]
+name=Other
+process=null

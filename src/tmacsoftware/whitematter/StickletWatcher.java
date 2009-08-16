@@ -16,7 +16,11 @@ public class StickletWatcher extends Thread
         this.stickletHandler = stickletHandler;
     }
 
-    public void run()
+    /**
+     * Check if any sticklet processes match currently running processes,
+     * and show appopriate sticklet if so
+     */
+    @Override public void run()
     {
         while (true)
         {
@@ -68,6 +72,10 @@ public class StickletWatcher extends Thread
         }
     }
 
+    /**
+     * Get all running processes (system-dependent)
+     * @return Vector containing running process names
+     */
     public Vector<String> getRunningProcesses()
     {
         return (System.getProperty("os.name").compareTo("Linux") == 0) ? getRunningProcessesLinux() : getRunningProcessesWindows();

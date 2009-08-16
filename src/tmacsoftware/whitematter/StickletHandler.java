@@ -1,6 +1,5 @@
 package tmacsoftware.whitematter;
 
-import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import tmacsoftware.ursql.*;
 import java.util.Vector;

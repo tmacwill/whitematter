@@ -8,15 +8,13 @@ public class NotebookHandler
 
     private TrayNotebook trayNotebook = null;
     private UrSQLController controller = null;
-    private Vector<UrSQLEntity> pages = null;
     private int pageCount = 0;
     private int pageCurrent = 0;
 
     public NotebookHandler(TrayNotebook trayNotebook)
     {
         this.trayNotebook = trayNotebook;
-        controller = new UrSQLController("notebook.udb");
-        pages = new Vector<UrSQLEntity>();
+        this.controller = new UrSQLController("notebook.udb");
     }
 
     /**
@@ -25,12 +23,6 @@ public class NotebookHandler
     public void loadPages()
     {
         Vector<UrSQLEntity> entities = controller.getAllEntities();
-        // add blank entity to avoid zero-based index
-        this.pages.add(new UrSQLEntity());
-        for (int i = 0; i < entities.size(); i++)
-        {
-            this.pages.add(entities.get(i));
-        }
         this.pageCount = entities.size();
 
         if (pageCount == 0)
@@ -49,9 +41,10 @@ public class NotebookHandler
      */
     public void loadPage(int index)
     {
+        UrSQLEntity entity = controller.getEntity("page=" + String.valueOf(index));
         // set gui elements based on database data
-        trayNotebook.setPageText(pages.get(index).getEntry("text").getValue());
-        trayNotebook.setPageTitle(pages.get(index).getEntry("title").getValue());
+        trayNotebook.setPageText(entity.getEntry("text").getValue());
+        trayNotebook.setPageTitle(entity.getEntry("title").getValue());
         String label = "Page " + index + " of " + pageCount;
         trayNotebook.setPageLabel(label);
 
@@ -128,8 +121,6 @@ public class NotebookHandler
         entity.addEntry(page);
         controller.writeEntity(entity);
 
-        // add new page to pages vector and load new page
-        this.pages.add(entity);
         this.loadPage(this.pageCount);
     }
 
@@ -152,9 +143,6 @@ public class NotebookHandler
                 controller.writeEntry(entry);
             }
         }
-
-        // remove current page from vector and decrement page count
-        this.pages.remove(this.pageCurrent);
         this.pageCount--;
 
         // load previous page
