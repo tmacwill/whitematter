@@ -13,7 +13,7 @@ public class NotebookHandler
     private final String WELCOME_TEXT = "Welcome to WhiteMatter 2.0! WhiteMatter " +
             "is a desktop note manager program. You are currently viewing the" +
             " notebook, which can be minimized to the tray by clicking the" +
-            " WhiteMatter logo" + System.getProperty("line.separator") +
+            " WhiteMatter logo. Use the notebook" + System.getProperty("line.separator") +
             System.getProperty("line.separator") + "Sticklets are notes" +
             " that you can tie to a particular application. Select the name of" +
             " the application, then type your note. The next time you open that " +

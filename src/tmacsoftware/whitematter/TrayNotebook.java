@@ -22,13 +22,23 @@ public class TrayNotebook extends javax.swing.JFrame
     public TrayNotebook()
     {
         initComponents();
+
+        // set icon for frame
+        URL path = this.getClass().getResource("/images/icon.png");
+        ImageIcon image = new ImageIcon(path);
+        this.setIconImage(image.getImage());
+
+        // load tray icon
         this.loadTray();
 
+        // create handler for notebook
         this.notebookHandler = new NotebookHandler(this);
 
+        // create handler for sticklets
         this.stickletHandler = new StickletHandler(this);
         this.stickletHandler.loadSticklets();
 
+        // create handler for clipboard
         this.clipboardHandler = new ClipboardHandler(this);
         this.clipboardHandler.start();
 

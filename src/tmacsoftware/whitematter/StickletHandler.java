@@ -50,6 +50,7 @@ public class StickletHandler
     {
         String query = "process=" + process;
         UrSQLEntity entity = this.controller.getEntity(query);
+
         // create new note
         if (entity.isEmpty())
         {
@@ -98,7 +99,7 @@ public class StickletHandler
         // remove entity from database
         String query = "process=" + process;
         controller.removeEntity(query);
-        
+
         // refresh table
         this.loadSticklets();
     }
@@ -109,6 +110,14 @@ public class StickletHandler
     public void editSelectedSticklet()
     {
         int selectedRow = this.trayNotebook.tableSticklets.getSelectedRow();
+
+        // return if no row is selected
+        if (selectedRow == -1)
+        {
+            return;
+        }
+
+        // edit selected sticklet
         this.editSticklet(this.tableModel.getValueAt(selectedRow, 0).toString(),
                 this.tableModel.getValueAt(selectedRow, 1).toString());
     }
@@ -119,6 +128,13 @@ public class StickletHandler
     public void deleteSelectedSticklet()
     {
         int selectedRow = this.trayNotebook.tableSticklets.getSelectedRow();
+
+        if (selectedRow == -1)
+        {
+            return;
+        }
+
+        // delete selected sticklet
         this.deleteSticklet(this.tableModel.getValueAt(selectedRow, 0).toString(),
                 this.tableModel.getValueAt(selectedRow, 1).toString());
     }

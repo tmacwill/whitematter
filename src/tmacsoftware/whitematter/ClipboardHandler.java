@@ -27,7 +27,7 @@ public class ClipboardHandler extends Thread
         {
             try
             {
-                Thread.sleep(4000);
+                Thread.sleep(2000);
                 // store text data in temporary string
                 newClip = (String) clipContent.getTransferData(DataFlavor.stringFlavor);
                 // aviod duplicate entries

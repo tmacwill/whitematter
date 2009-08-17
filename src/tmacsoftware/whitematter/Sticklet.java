@@ -1,7 +1,8 @@
 package tmacsoftware.whitematter;
 
 import tmacsoftware.ursql.*;
-import java.util.Vector;
+import java.net.URL;
+import javax.swing.ImageIcon;
 
 public class Sticklet extends javax.swing.JFrame
 {
@@ -15,13 +16,21 @@ public class Sticklet extends javax.swing.JFrame
     {
         initComponents();
 
+        // set icon for frame
+        URL path = this.getClass().getResource("/images/icon.png");
+        ImageIcon image = new ImageIcon(path);
+        this.setIconImage(image.getImage());
+
+        // create process loader to get application names from database
         this.processLoader = new ProcessLoader(this);
         this.processLoader.load();
 
+        // set properties from constructor
         this.setProcess(process);
         this.setNote(note);
         this.stickletHandler = stickletHandler;
 
+        // add listener to make combo box editable
         this.comboProcess.addActionListener(new java.awt.event.ActionListener()
         {
 
