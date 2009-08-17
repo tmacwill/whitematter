@@ -75,6 +75,9 @@ public class NotebookHandler
      */
     public void nextPage()
     {
+        // save page before moving
+        this.savePage();
+
         // increment current page
         this.pageCurrent++;
         // go to first page if at last
@@ -92,6 +95,9 @@ public class NotebookHandler
      */
     public void previousPage()
     {
+        // save page before moving
+        this.savePage();
+
         // decrement current page
         this.pageCurrent--;
         // go to last page if at first
@@ -147,6 +153,12 @@ public class NotebookHandler
      */
     public void deletePage()
     {
+        // do not delete page if only one exists
+        if (this.pageCount == 1)
+        {
+            return;
+        }
+
         // remove current page from database
         controller.removeEntity("page=" + String.valueOf(this.pageCurrent));
 
