@@ -1,8 +1,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\tmac\Documents\Projects\whitematter\release\whitematter.jar</jar>
-  <outfile>C:\Users\tmac\Documents\Projects\whitematter\release\whitematter.exe</outfile>
+  <jar>/home/tmac/Projects/whitematter/dist/whitematter.jar</jar>
+  <outfile>/home/tmac/Projects/whitematter/whitematter.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir></chdir>
@@ -12,7 +12,7 @@
   <customProcName>false</customProcName>
   <stayAlive>false</stayAlive>
   <manifest></manifest>
-  <icon>C:\Users\tmac\Documents\Projects\whitematter\src\images\icon.ico</icon>
+  <icon>/home/tmac/Projects/whitematter/src/images/icon.ico</icon>
   <jre>
     <path></path>
     <minVersion>1.6.0_00</minVersion>

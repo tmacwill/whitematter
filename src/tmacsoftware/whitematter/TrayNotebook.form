@@ -52,11 +52,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="1" pref="361" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="1" pref="322" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblTitlePage" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtTitlePage" pref="333" max="32767" attributes="0"/>
+                              <Component id="txtTitlePage" pref="280" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnPreviousPage" min="-2" max="-2" attributes="0"/>
@@ -66,7 +66,7 @@
                               <Component id="btnSavePage" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnNewPage" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="13" max="32767" attributes="0"/>
                               <Component id="btnNextPage" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lblPage" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
                           <Component id="txtTitlePage" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="375" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="348" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblPage" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -153,6 +153,7 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -189,11 +190,11 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane2" alignment="1" pref="329" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="1" pref="322" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="btnDeleteSticklet" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnEditSticklet" pref="125" max="32767" attributes="0"/>
+                              <Component id="btnEditSticklet" pref="115" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnNewSticklet" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -207,7 +208,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="390" max="-2" attributes="0"/>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnNewSticklet" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnDeleteSticklet" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -299,8 +300,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane3" alignment="0" pref="327" max="32767" attributes="0"/>
-                          <Component id="btnUpdateClipboard" alignment="0" pref="327" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" alignment="0" pref="322" max="32767" attributes="0"/>
+                          <Component id="btnUpdateClipboard" alignment="0" pref="322" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="12" attributes="0"/>
                   </Group>
@@ -310,7 +311,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" pref="416" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="398" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnUpdateClipboard" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -339,6 +340,7 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
                 </Component>
               </SubComponents>

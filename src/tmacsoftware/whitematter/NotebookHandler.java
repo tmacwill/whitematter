@@ -10,24 +10,42 @@ public class NotebookHandler
     private UrSQLController controller = null;
     private int pageCount = 0;
     private int pageCurrent = 0;
+    private final String WELCOME_TEXT = "Welcome to WhiteMatter 2.0! WhiteMatter " +
+            "is a desktop note manager program. You are currently viewing the" +
+            " notebook, which can be minimized to the tray by clicking the" +
+            " WhiteMatter logo" + System.getProperty("line.separator") +
+            System.getProperty("line.separator") + "Sticklets are notes" +
+            " that you can tie to a particular application. Select the name of" +
+            " the application, then type your note. The next time you open that " +
+            "application, your note will pop up with your reminder. So, " +
+            "you can create a reminder that will pop up when you open Firefox " +
+            "saying \"Email Mom those pictures\"";
 
     public NotebookHandler(TrayNotebook trayNotebook)
     {
         this.trayNotebook = trayNotebook;
         this.controller = new UrSQLController("notebook.udb");
-    }
 
-    /**
-     * Fill pages vector with database data and go to first page
-     */
-    public void loadPages()
-    {
         Vector<UrSQLEntity> entities = controller.getAllEntities();
         this.pageCount = entities.size();
 
+        // if database is blank, create a new page with welcome text
         if (pageCount == 0)
         {
-            this.newPage();
+            this.pageCount = 1;
+
+            // write default page data to database
+            UrSQLEntity entity = controller.createEntity();
+            UrSQLEntry title = new UrSQLEntry("title", "Welcome to WhiteMatter!");
+            UrSQLEntry text = new UrSQLEntry("text", this.WELCOME_TEXT);
+            UrSQLEntry page = new UrSQLEntry("page", String.valueOf(this.pageCount));
+
+            entity.addEntry(title);
+            entity.addEntry(text);
+            entity.addEntry(page);
+            controller.writeEntity(entity);
+
+            this.loadPage(this.pageCount);
         }
         else
         {
@@ -148,7 +166,7 @@ public class NotebookHandler
         // load previous page
         if (this.pageCurrent == 1)
         {
-            this.loadPage(2);
+            this.loadPage(1);
         }
         else
         {

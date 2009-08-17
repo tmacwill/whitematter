@@ -25,7 +25,6 @@ public class TrayNotebook extends javax.swing.JFrame
         this.loadTray();
 
         this.notebookHandler = new NotebookHandler(this);
-        this.notebookHandler.loadPages();
 
         this.stickletHandler = new StickletHandler(this);
         this.stickletHandler.loadSticklets();
@@ -230,6 +229,7 @@ public class TrayNotebook extends javax.swing.JFrame
         txtPage.setColumns(20);
         txtPage.setLineWrap(true);
         txtPage.setRows(5);
+        txtPage.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtPage);
 
         lblTitlePage.setText("Title:");
@@ -245,11 +245,11 @@ public class TrayNotebook extends javax.swing.JFrame
             .addGroup(panelNotebookLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelNotebookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                     .addGroup(panelNotebookLayout.createSequentialGroup()
                         .addComponent(lblTitlePage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTitlePage, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+                        .addComponent(txtTitlePage, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))
                     .addGroup(panelNotebookLayout.createSequentialGroup()
                         .addComponent(btnPreviousPage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,7 +258,7 @@ public class TrayNotebook extends javax.swing.JFrame
                         .addComponent(btnSavePage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNewPage)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(btnNextPage))
                     .addComponent(lblPage))
                 .addContainerGap())
@@ -271,7 +271,7 @@ public class TrayNotebook extends javax.swing.JFrame
                     .addComponent(lblTitlePage)
                     .addComponent(txtTitlePage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -324,11 +324,11 @@ public class TrayNotebook extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelStickletsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelStickletsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                     .addGroup(panelStickletsLayout.createSequentialGroup()
                         .addComponent(btnDeleteSticklet)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditSticklet, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                        .addComponent(btnEditSticklet, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNewSticklet)))
                 .addContainerGap())
@@ -338,7 +338,7 @@ public class TrayNotebook extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelStickletsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(panelStickletsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNewSticklet)
                     .addComponent(btnDeleteSticklet)
@@ -358,6 +358,7 @@ public class TrayNotebook extends javax.swing.JFrame
         txtClipboard.setColumns(20);
         txtClipboard.setLineWrap(true);
         txtClipboard.setRows(5);
+        txtClipboard.setWrapStyleWord(true);
         jScrollPane3.setViewportView(txtClipboard);
 
         javax.swing.GroupLayout panelClipboardLayout = new javax.swing.GroupLayout(panelClipboard);
@@ -367,15 +368,15 @@ public class TrayNotebook extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClipboardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelClipboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                    .addComponent(btnUpdateClipboard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                    .addComponent(btnUpdateClipboard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         panelClipboardLayout.setVerticalGroup(
             panelClipboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClipboardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnUpdateClipboard)
                 .addContainerGap())
