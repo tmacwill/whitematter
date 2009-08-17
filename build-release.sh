@@ -36,7 +36,10 @@ cp windowsprocesses.udb whitematter
 cp linuxprocesses.udb whitematter
 
 # create windows executable
-/home/tmac/Java/launch4j/launch4j launch4jconfig.xml
+rm whitematter.exe
+
+# replace with path to launch4j
+/home/tmac/Java/launch4j/launch4j /home/tmac/Projects/whitematter/launch4j.xml
 
 # copy windows executables
 cp whitematter.exe whitematter
