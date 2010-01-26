@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # WhiteMatter build script
-# Tommy MacWilliam, 2009
+# zip of all necessary files will be found in release/whitematter.zip
+# Tommy MacWilliam, 2010
 
 # delete directories if existing
 if [ -d whitematter ]; then
-rm -r autosync
+rm -r whitematter
 fi
 
 if [ -d release ]; then
@@ -28,6 +29,7 @@ cp -r lib/jdic/sunos whitematter/lib
 rm sticklets.udb
 rm notebook.udb
 
+# wipe databases
 echo "[0]" > sticklets.udb
 echo "[0]" > notebook.udb
 
